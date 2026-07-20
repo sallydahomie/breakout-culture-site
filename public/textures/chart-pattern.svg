@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200">
+  <defs>
+    <pattern id="candles" width="40" height="200" patternUnits="userSpaceOnUse">
+      <line x1="10" y1="60" x2="10" y2="140" stroke="#c9a961" stroke-width="1" />
+      <rect x="6" y="80" width="8" height="35" fill="none" stroke="#c9a961" stroke-width="1" />
+      <line x1="30" y1="40" x2="30" y2="110" stroke="#c9a961" stroke-width="1" />
+      <rect x="26" y="55" width="8" height="30" fill="#c9a961" stroke="#c9a961" stroke-width="1" />
+    </pattern>
+  </defs>
+  <rect width="400" height="200" fill="url(#candles)" />
+  <polyline points="0,150 40,120 80,135 120,90 160,100 200,60 240,80 280,50 320,70 360,40 400,55"
+    fill="none" stroke="#c9a961" stroke-width="1.5" />
+</svg>

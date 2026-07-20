@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #1a1613;
+  --foreground: #f9f7f4;
+  --gold-foil: linear-gradient(115deg, #a8863f 10%, #ddc48a 45%, #c9a961 65%, #a8863f 90%);
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Consistent gold focus treatment for every interactive element.
+     Outline (not ring) so the gap reads correctly on both cream and espresso backgrounds. */
+  .focus-gold {
+    outline: none;
+  }
+  .focus-gold:focus-visible {
+    outline: 2px solid #c9a961;
+    outline-offset: 3px;
+  }
+
+  /* Warm gold gradient/glow on headline text for a premium foil effect */
+  .gold-foil-text {
+    background: var(--gold-foil);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 24px rgba(201, 169, 97, 0.25);
+  }
+
+  /* Same gold foil gradient, used as a fill rather than a text clip */
+  .gold-foil-bg {
+    background: var(--gold-foil);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
