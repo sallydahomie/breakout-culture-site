@@ -14,14 +14,14 @@ export default function ContactPage() {
         <h1 className="mt-4 font-display text-4xl font-semibold tracking-[-0.03em] text-espresso sm:text-5xl">
           Contact
         </h1>
-        <p className="mt-6 font-subhead text-xl leading-[1.7] text-taupe">
+        <p className="mt-6 font-body text-xl leading-[1.7] text-taupe">
           Questions about an order, a drop, or the brand? We read everything.
         </p>
         <a
-          href="mailto:hello@breakoutculture.com"
-          className="focus-gold mt-8 inline-block font-subhead text-xl text-gold-dark transition-colors duration-200 hover:text-gold hover:underline"
+          href="mailto:1breakoutculture@gmail.com"
+          className="focus-gold mt-8 inline-block font-body text-xl text-gold-dark transition-colors duration-200 hover:text-gold hover:underline"
         >
-          hello@breakoutculture.com
+          1breakoutculture@gmail.com
         </a>
       </div>
     </section>

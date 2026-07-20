@@ -48,13 +48,23 @@ export default function Footer() {
             </p>
             <ul className="space-y-2 font-body text-[13px] text-taupe">
               <li>
-                <a href="#" className="focus-gold transition-colors duration-300 hover:text-cream">
+                <a
+                  href="https://www.instagram.com/sallydahomie/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-gold transition-colors duration-300 hover:text-cream"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="focus-gold transition-colors duration-300 hover:text-cream">
-                  Twitter
+                <a
+                  href="https://www.youtube.com/@TrevorC.1/featured"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-gold transition-colors duration-300 hover:text-cream"
+                >
+                  YouTube
                 </a>
               </li>
             </ul>

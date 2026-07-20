@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import clsx from "clsx";
 import { fadeUp } from "@/lib/scrollAnimation";
 
 const faqs = [
@@ -50,11 +51,14 @@ export function FaqContent() {
           FAQ
         </motion.h1>
 
-        <div className="mt-14 space-y-10">
+        <div className="mt-14">
           {faqs.map((faq, i) => {
             const questionDelay = LIST_START + i * STEP;
             return (
-              <div key={faq.question}>
+              <div
+                key={faq.question}
+                className={clsx("py-6", i > 0 && "border-t border-gold/20")}
+              >
                 <motion.h2
                   initial="hidden"
                   animate={state}
