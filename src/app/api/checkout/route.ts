@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         error:
-          "Stripe is not configured. Add STRIPE_SECRET_KEY to .env.local (test mode key) to enable checkout.",
+          "Stripe is not configured. Add STRIPE_SECRET_KEY to .env.local to enable checkout.",
       },
       { status: 500 }
     );

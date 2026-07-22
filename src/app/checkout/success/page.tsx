@@ -22,8 +22,7 @@ export default function CheckoutSuccessPage() {
           Thanks For Building With Us
         </h1>
         <p className="mt-8 font-body text-base text-taupe">
-          Your order has been placed in Stripe test mode. A confirmation email would
-          normally be sent from here. No live payment was processed.
+          Your order has been placed. A confirmation email will be sent shortly.
         </p>
         <ButtonLink href="/shop" className="mt-10 inline-flex">
           Continue Shopping

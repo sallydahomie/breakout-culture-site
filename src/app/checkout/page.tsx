@@ -171,8 +171,7 @@ export default function CheckoutPage() {
             </div>
 
             <p className="mt-6 text-center font-body text-sm text-taupe">
-              Payment is completed securely on Stripe&apos;s hosted checkout page
-              (test mode).
+              Payment is completed securely on Stripe&apos;s hosted checkout page.
             </p>
 
             {error && (
