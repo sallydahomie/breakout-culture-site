@@ -8,10 +8,16 @@ import {
   useState,
   ReactNode,
 } from "react";
-import { ProductSize } from "@/types/product";
+import { DesignVersion, ProductSize } from "@/types/product";
 
+// name/price are for client-side display only (cart totals, line items).
+// The server independently re-validates every field against the product
+// catalog at checkout time and never trusts these values.
 export interface CartItem {
   slug: string;
+  sku: string;
+  designVersion: DesignVersion;
+  color: string;
   name: string;
   price: number;
   size: ProductSize;

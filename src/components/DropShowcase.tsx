@@ -13,7 +13,7 @@ const revealItems = [
     duration: 0.4,
     content: (
       <p className="font-body text-[11px] tracking-[2px] uppercase text-gold">
-        Drop 01: Volatile
+        VOLATILE //001
       </p>
     ),
   },
@@ -23,7 +23,7 @@ const revealItems = [
     duration: 0.4,
     content: (
       <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.03em] text-cream sm:text-5xl">
-        Make Internet Money Hoodie
+        ANTI 9-5 Club Hoodie | Statement
       </h2>
     ),
   },
@@ -34,13 +34,13 @@ const revealItems = [
     content: (
       <div className="mt-4 flex flex-col items-center">
         <div className="flex flex-wrap items-baseline justify-center gap-3">
-          <PriceTag price={77.99} dark size="lg" />
+          <PriceTag price={65.99} dark size="lg" />
           <span className="font-body text-lg text-cream/40 line-through">
-            $99.99
+            $89.99
           </span>
         </div>
         <p className="mt-2 font-body text-xs tracking-[1.5px] uppercase text-gold/90">
-          22% Off &middot; Launch Celebration Sale &middot; Ends In 5 Days
+          27% Off &middot; Launch Celebration Sale &middot; Ends In 10 Days
         </p>
       </div>
     ),

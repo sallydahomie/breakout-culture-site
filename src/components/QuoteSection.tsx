@@ -18,7 +18,7 @@ export function QuoteSection() {
           variants={fadeUp(0)}
           className="font-subhead text-[24px] font-bold italic leading-[1.8] text-cream sm:text-[28px]"
         >
-          &ldquo;I wore the Make Internet Money hoodie the day I handed in my notice.
+          &ldquo;I wore the ANTI 9-5 Club Hoodie | Statement the day I handed in my notice.
           My manager asked where to get one.&rdquo;
         </motion.p>
         <motion.p

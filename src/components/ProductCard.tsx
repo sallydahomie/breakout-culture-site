@@ -3,13 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import clsx from "clsx";
 import { Product } from "@/types/product";
 import { PriceTag } from "@/components/PriceTag";
-import { VintageBadge } from "@/components/VintageBadge";
 
 const MotionLink = motion.create(Link);
 
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  fill = false,
+}: {
+  product: Product;
+  fill?: boolean;
+}) {
   return (
     <MotionLink
       href={`/product/${product.slug}`}
@@ -22,16 +28,12 @@ export function ProductCard({ product }: { product: Product }) {
         transition: { type: "spring", duration: 0.3, bounce: 0.2 },
       }}
       whileTap={{ scale: 0.98 }}
-      className="focus-gold group relative block overflow-hidden rounded-lg bg-espresso p-[50px] transition-shadow duration-300 hover:shadow-gold-glow lg:mx-auto lg:max-w-[550px]"
+      className={clsx(
+        "focus-gold group relative flex h-full flex-col overflow-hidden rounded-lg bg-espresso p-[50px] transition-shadow duration-300 hover:shadow-gold-glow",
+        !fill && "lg:mx-auto lg:max-w-[550px]"
+      )}
     >
       <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-md bg-espresso">
-        {product.badge && (
-          <VintageBadge
-            label={product.badge}
-            serif
-            className="absolute right-3 top-3 z-10 bg-cream shadow-warm"
-          />
-        )}
         <Image
           src={product.images[0]}
           alt={product.name}
@@ -41,11 +43,25 @@ export function ProductCard({ product }: { product: Product }) {
         />
       </div>
 
-      <div className="mt-[25px] text-center">
-        <h3 className="font-display text-xl font-semibold text-cream">
-          {product.name}
-        </h3>
-        <PriceTag price={product.price} dark size="sm" className="mt-2.5 block" />
+      <div className="mt-[25px] flex flex-1 flex-col items-center justify-between text-center">
+        <div>
+          <h3 className="font-display text-xl font-semibold text-cream">
+            {product.name}
+          </h3>
+          <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2">
+            <PriceTag price={product.price} dark size="sm" />
+            {product.originalPrice && (
+              <>
+                <span className="font-body text-sm text-cream/50 line-through">
+                  ${product.originalPrice.toFixed(2)}
+                </span>
+                <span className="inline-flex items-center rounded-full border border-gold/40 px-2 py-0.5 font-body text-[10px] tracking-[1.5px] uppercase text-gold">
+                  {Math.round((1 - product.price / product.originalPrice) * 100)}% Off
+                </span>
+              </>
+            )}
+          </div>
+        </div>
         <span className="mt-[15px] inline-flex items-center gap-1.5 font-subhead text-sm uppercase tracking-wide2 text-gold transition-colors duration-200 group-hover:underline group-hover:underline-offset-4">
           View Product
           <svg

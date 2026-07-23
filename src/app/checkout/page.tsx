@@ -8,19 +8,11 @@ import { Button, ButtonLink } from "@/components/Button";
 type Step = "shipping" | "review";
 
 interface ShippingInfo {
-  name: string;
   email: string;
-  address: string;
-  city: string;
-  postalCode: string;
 }
 
 const emptyShipping: ShippingInfo = {
-  name: "",
   email: "",
-  address: "",
-  city: "",
-  postalCode: "",
 };
 
 export default function CheckoutPage() {
@@ -57,12 +49,12 @@ export default function CheckoutPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           items: items.map((item) => ({
-            name: item.name,
-            price: item.price,
-            quantity: item.quantity,
+            slug: item.slug,
+            sku: item.sku,
             size: item.size,
+            quantity: item.quantity,
           })),
-          origin: window.location.origin,
+          email: shipping.email,
         }),
       });
 
@@ -102,38 +94,16 @@ export default function CheckoutPage() {
         {step === "shipping" && (
           <form onSubmit={handleShippingSubmit} className="mt-10 space-y-5">
             <Field
-              label="Full Name"
-              value={shipping.name}
-              onChange={(v) => setShipping((s) => ({ ...s, name: v }))}
-              required
-            />
-            <Field
               label="Email"
               type="email"
               value={shipping.email}
               onChange={(v) => setShipping((s) => ({ ...s, email: v }))}
               required
             />
-            <Field
-              label="Address"
-              value={shipping.address}
-              onChange={(v) => setShipping((s) => ({ ...s, address: v }))}
-              required
-            />
-            <div className="grid grid-cols-2 gap-5">
-              <Field
-                label="City"
-                value={shipping.city}
-                onChange={(v) => setShipping((s) => ({ ...s, city: v }))}
-                required
-              />
-              <Field
-                label="Postal Code"
-                value={shipping.postalCode}
-                onChange={(v) => setShipping((s) => ({ ...s, postalCode: v }))}
-                required
-              />
-            </div>
+            <p className="font-body text-xs text-taupe/70">
+              Your name and shipping address are collected securely on the next
+              step, Stripe&apos;s hosted checkout page.
+            </p>
             <Button type="submit" className="mt-4 w-full">
               Continue to Payment
             </Button>
@@ -166,7 +136,7 @@ export default function CheckoutPage() {
                 <span>${subtotal.toFixed(2)}</span>
               </div>
               <p className="mt-2 font-body text-xs text-taupe/70">
-                Shipping to {shipping.address}, {shipping.city} {shipping.postalCode}
+                Shipping address collected securely at checkout.
               </p>
             </div>
 

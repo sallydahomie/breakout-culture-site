@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 import { ParallaxLayers } from "@/components/ui/parallax-scrolling";
 
-const CYCLE_MS = 5 * 24 * 60 * 60 * 1000;
+const CYCLE_MS = 10 * 24 * 60 * 60 * 1000;
 // Fixed reference point so the countdown is perpetual and consistent for every
-// visitor (elapsed time mod the 5-day cycle), rather than resetting per page load.
-const CYCLE_EPOCH = new Date("2026-01-01T00:00:00Z").getTime();
+// visitor (elapsed time mod the 10-day cycle), rather than resetting per page load.
+const CYCLE_EPOCH = new Date("2026-07-22T00:00:00Z").getTime();
 
 function getRemainingMs() {
   const elapsed = (Date.now() - CYCLE_EPOCH) % CYCLE_MS;
@@ -66,7 +66,7 @@ export function CountdownSection() {
         </div>
 
         <p className="mx-auto mt-10 max-w-xl font-body text-base leading-[1.7] text-cream/75">
-          Launch Celebration Sale: 22% off the Make Internet Money Hoodie. Five
+          Launch Celebration Sale: 27% off the ANTI 9-5 Club Hoodie | Statement. Ten
           days only. After the window closes, price returns to regular.
         </p>
       </div>

@@ -6,6 +6,7 @@ import { VintageBadge } from "@/components/VintageBadge";
 import { ProductCard } from "@/components/ProductCard";
 import { AddToCartForm } from "@/components/AddToCartForm";
 import { ProductImageCarousel } from "@/components/ProductImageCarousel";
+import { OrnamentalDivider } from "@/components/OrnamentalDivider";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -81,7 +82,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 </span>
               )}
             </div>
-            <p className="mt-5 font-body text-base leading-[1.7] text-cream/75">
+            <p className="mt-5 whitespace-pre-line font-body text-base leading-[1.7] text-cream/75">
               {product.description}
             </p>
             <p className="mt-4 font-body text-base font-bold leading-[1.7] text-cream">
@@ -99,27 +100,45 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
       </div>
 
       <div className="mx-auto max-w-6xl px-6">
-        {/* Why buy */}
+        {/* The Meaning Behind It */}
         <div className="mx-auto mt-20 max-w-2xl text-center">
           <h2 className="font-display text-2xl font-semibold text-cream">
-            Why Buy
+            The Meaning Behind It
+          </h2>
+          <p className="mt-6 whitespace-pre-line font-body text-base leading-[1.7] text-cream/75">
+            {product.meaning}
+          </p>
+        </div>
+
+        <OrnamentalDivider className="mt-20" />
+
+        {/* Build To Last */}
+        <div className="mx-auto mt-20 max-w-2xl text-center">
+          <h2 className="font-display text-2xl font-semibold text-cream">
+            Build To Last.
           </h2>
           <ul className="mt-6 space-y-3 font-body text-base leading-[1.7] text-cream/75">
-            {product.whyBuy.map((point) => (
-              <li key={point}>{point}</li>
+            {product.buildToLast.map((point) => (
+              <li key={point}>&bull; {point}</li>
             ))}
           </ul>
         </div>
 
-        {/* Shipping / Returns */}
+        <OrnamentalDivider className="mt-20" />
+
+        {/* Risk Free */}
         <div className="mx-auto mt-20 max-w-2xl text-center">
           <h2 className="font-display text-2xl font-semibold text-cream">
-            Shipping &amp; Returns
+            Risk Free
           </h2>
-          <p className="mt-6 font-body text-base leading-[1.7] text-cream/75">
-            Free shipping on orders over $75. Ships within 3–5 business days. 30-day
-            returns, no questions asked.
+          <p className="mt-6 whitespace-pre-line font-body text-base leading-[1.7] text-cream/75">
+            Chase big dreams.{"\n\n"}Your hoodie shouldn&apos;t be the risky part.
           </p>
+          <ul className="mt-6 space-y-3 font-body text-base leading-[1.7] text-cream/75">
+            <li>&#10003; Free shipping over $75</li>
+            <li>&#10003; Ships in 3&ndash;5 business days</li>
+            <li>&#10003; 30-day returns</li>
+          </ul>
         </div>
 
         {related.length > 0 && (

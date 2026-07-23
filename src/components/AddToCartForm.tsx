@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Button } from "@/components/Button";
 import { PriceTag } from "@/components/PriceTag";
 import { useCart } from "@/lib/cart-context";
+import { findVariantBySlugAndSize } from "@/lib/products";
 import { Product, ProductSize } from "@/types/product";
 
 export function AddToCartForm({ product }: { product: Product }) {
@@ -17,8 +18,14 @@ export function AddToCartForm({ product }: { product: Product }) {
   const router = useRouter();
 
   function handleAddToCart() {
+    const resolved = findVariantBySlugAndSize(product.slug, size);
+    if (!resolved) return;
+
     addItem({
       slug: product.slug,
+      sku: resolved.variant.sku,
+      designVersion: product.designVersion,
+      color: product.color,
       name: product.name,
       price: product.price,
       size,

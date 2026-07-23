@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-espresso text-cream shadow-warm">
       <p className="bg-espresso px-4 py-2 text-center font-body text-[12px] uppercase tracking-[1.5px] text-gold sm:text-[13px]">
-        Free Shipping + 22% Off · Launch Celebration Sale
+        Free Shipping + 27% Off · Launch Celebration Sale
       </p>
 
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
